@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
+
 set -euo pipefail
 
-IMAGE_NAME=${IMAGE_NAME:-centos}
-IMAGE_VERSION=${IMAGE_VERSION:-latest}
+IMAGE_NAME=${IMAGE_NAME:-python}
+IMAGE_VERSION=${IMAGE_VERSION:-2.7.16-stretch}
 WORK_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../" && pwd)"
 
 [[ -d "${HOME}/.aws" ]] && volumes+=(--volume ${HOME}/.aws:/root/.aws)
@@ -16,7 +17,6 @@ env+=(--env HTTP_PROXY="$http_proxy")
 env+=(--env HTTPS_PROXY="$http_proxy")
 env+=(--env PYTHONHTTPSVERIFY=0)
 env+=(--env CURL_CA_BUNDLE="")
-
 
 # using --tty causes output to use CRLF line endings, which is problematic
 # when trying to handle the output programmatically. so we only request

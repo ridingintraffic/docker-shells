@@ -1,7 +1,33 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-IMAGE_NAME=${IMAGE_NAME:-centos}
+help() {
+  echo "$0:"
+  echo "  usage:"
+  echo "    amap "
+  echo "    amap "
+  echo "    amap "
+  echo "    amap "
+  echo "    msfconsole "
+  echo "    nmap "
+  echo "    padbuster "
+  echo "    reaver "
+  echo "    responder "
+  echo "    sqlmap "
+
+  exit 2
+}
+
+
+
+if [ "$1" == "-h" ] || [ "$1" == "--help" ] || [ "$1" == "help" ]; then
+  help
+  exit 0
+
+fi
+
+
+IMAGE_NAME=${IMAGE_NAME:-booyaabes/kali-linux-full}
 IMAGE_VERSION=${IMAGE_VERSION:-latest}
 WORK_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../" && pwd)"
 
