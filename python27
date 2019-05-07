@@ -6,9 +6,7 @@ IMAGE_NAME=${IMAGE_NAME:-python}
 IMAGE_VERSION=${IMAGE_VERSION:-2.7.16-stretch}
 WORK_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../" && pwd)"
 
-[[ -d "${HOME}/.aws" ]] && volumes+=(--volume ${HOME}/.aws:/root/.aws)
-[[ -d "${HOME}/.ssh" ]] && volumes+=(--volume ${HOME}/.ssh:/root/.ssh)
-[[ -d "${HOME}/.vault" ]] && volumes+=(--volume /vault)
+#[[ -d "${HOME}/.something" ]] && volumes+=(--volume ${HOME}/.something:/root/.something)
 
 env+=(--env TMPDIR=/tmp)
 

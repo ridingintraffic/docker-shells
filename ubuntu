@@ -6,9 +6,8 @@ IMAGE_NAME=${IMAGE_NAME:-ubuntu}
 IMAGE_VERSION=${IMAGE_VERSION:-latest}
 WORK_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../" && pwd)"
 
-[[ -d "${HOME}/.aws" ]] && volumes+=(--volume ${HOME}/.aws:/root/.aws)
-[[ -d "${HOME}/.ssh" ]] && volumes+=(--volume ${HOME}/.ssh:/root/.ssh)
-[[ -d "${HOME}/.vault" ]] && volumes+=(--volume /vault)
+#mounting example
+#[[ -d "${HOME}/.something" ]] && volumes+=(--volume ${HOME}/.something:/root/.something)
 
 env+=(--env TMPDIR=/tmp)
 
